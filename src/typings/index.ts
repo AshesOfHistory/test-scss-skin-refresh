@@ -1,8 +1,14 @@
-export enum CATEGORY_TYPES {
-  ALL,
-  VUE,
-  REACT,
-  NODE
+export enum THEME_TYPES {
+  // DEFAULT = '默认主题',
+  // OLD = '老年人主题',
+  // YOUNG = '年轻人主题',
+  // WARM = '暖色主题',
+  // COLD = '冷色主题'
+  DEFAULT,
+  OLD,
+  YOUNG,
+  WARM,
+  COLD
 }
 
 export interface ISlider {
@@ -10,6 +16,7 @@ export interface ISlider {
 }
 
 export interface ILesson {
+  id: number,
   title: string,
   video: string,
   poster: string,
@@ -26,7 +33,7 @@ export type ILessons = {
 }
 
 export interface IHomeState {
-  currentCategory: CATEGORY_TYPES,
+  currentCategory: THEME_TYPES,
   sliders: ISlider[],
   lessons: ILessons,
 }

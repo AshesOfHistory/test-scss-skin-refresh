@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { CATEGORY_TYPES, ILesson } from "@/typings";
+import { THEME_TYPES, ILesson } from "@/typings";
 import { defineComponent, PropType } from "vue";
 
 export default defineComponent({
@@ -30,9 +30,9 @@ export default defineComponent({
     function formatCategory(type: number) {
       switch (type) {
         case 1:
-          return "react课程";
+          return "老年人主题";
         case 2:
-          return "vue课程";
+          return "年轻人主题";
       }
     }
     return {

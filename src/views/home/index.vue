@@ -13,12 +13,12 @@
         <template #fallback> loading... </template>
       </Suspense>
 
-      <div ref="refreshElm">
+      <!-- <div ref="refreshElm">
         <HomeList :lessonList="lessonList" class="list-container" ></HomeList>
       </div>
       
       <div v-if="isLoading" class="tips" >正在加载中...</div>
-      <div v-if="!hasMore" class="tips">我是有底线的...</div>
+      <div v-if="!hasMore" class="tips">我是有底线的...</div> -->
     </div>
   </div>
 </template>
@@ -35,7 +35,7 @@
 </style>
 
 <script lang="ts">
-import { CATEGORY_TYPES } from "@/typings";
+import { THEME_TYPES } from "@/typings";
 import { IGlobalState } from "@/store";
 import HomeList from "./homeList.vue";
 import HomeSwiper from "./homeSwiper.vue";
@@ -47,7 +47,7 @@ import { useLoadMore } from "@/hooks/useLoadMore";
 
 function useCategory(store: Store<IGlobalState>) {
   let category = computed(() => store.state.home.currentCategory);
-  function setCurrentCategory(category: CATEGORY_TYPES) {
+  function setCurrentCategory(category: THEME_TYPES) {
     store.commit(`home/${Types.SET_CATEGORY}`, category);
   }
   return {

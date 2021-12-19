@@ -34,25 +34,26 @@
 
 
 <script lang="ts">
-import {CATEGORY_TYPES} from '@/typings';
+import { THEME_TYPES } from '../../typings';
 import {defineComponent, PropType, reactive, toRefs} from 'vue'
 export default defineComponent({
   props: {
     category: {
-      type: Number as PropType<CATEGORY_TYPES>
+      type: Number as PropType<THEME_TYPES>
     },
   },
   emits: ["setCurrentCategory"], // 为了在setup里面写触发事件的时候 提示方法名
   setup(props, context) {
     let state = reactive({
       options: [
-        {text: '全部课程', value: CATEGORY_TYPES.ALL},
-        {text: 'react课程', value: CATEGORY_TYPES.REACT},
-        {text: 'vue课程', value: CATEGORY_TYPES.VUE},
-        {text: 'node课程', value: CATEGORY_TYPES.NODE},
+        {text: '默认主题', value: THEME_TYPES.DEFAULT},
+        {text: '老人主题', value: THEME_TYPES.OLD},
+        {text: '年轻人主题', value: THEME_TYPES.YOUNG},
+        {text: '温暖主题', value: THEME_TYPES.WARM},
+        {text: '冷色主题', value: THEME_TYPES.COLD},
       ]
     })
-    function change(value: CATEGORY_TYPES) {
+    function change(value: THEME_TYPES) {
       context.emit("setCurrentCategory", value)
     }
     return {

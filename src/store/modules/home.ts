@@ -1,11 +1,11 @@
 import { Module } from 'vuex'
 import { IGlobalState } from '../index'
-import { CATEGORY_TYPES, ISlider, IHomeState, ILessons } from '@/typings'
+import { THEME_TYPES, ISlider, IHomeState, ILessons } from '@/typings'
 import * as Types from '../action-types'
 import { getLessons, getSliders } from '@/api/home'
 
 const state: IHomeState = {
-  currentCategory: CATEGORY_TYPES.ALL,
+  currentCategory: THEME_TYPES.DEFAULT,
   sliders: [],
   lessons: {
     loading: false,
@@ -20,7 +20,7 @@ export const home: Module<IHomeState, IGlobalState> = {
   namespaced: true,
   state,
   mutations: {
-    [Types.SET_CATEGORY](state, payload: CATEGORY_TYPES) {
+    [Types.SET_CATEGORY](state, payload: THEME_TYPES) {
       state.currentCategory = payload
     },
     [Types.SET_SLIDER_LIST](state, payload: ISlider[]) {
